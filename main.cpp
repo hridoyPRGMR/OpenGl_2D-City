@@ -13,6 +13,7 @@ void init()
     glMatrixMode(GL_PROJECTION);
 }
 
+
 void circle(float a, float b, float r)
 {
 
@@ -1277,6 +1278,7 @@ void thumba()
 }
 
 
+
 //bus animation
 
 GLfloat busP = 11.2f;
@@ -1533,6 +1535,25 @@ void display()
     glutSwapBuffers();
 }
 
+void animation(){
+
+    glutTimerFunc(10, busUp, 0);
+    glutTimerFunc(10,busUp2, 0);
+    glutTimerFunc(10,cloudAnimation, 0);
+    glutTimerFunc(10,sunAnimationX, 0);
+    glutTimerFunc(10,sunAnimationY, 0);
+
+}
+
+void keyfun( unsigned char key, int x, int y )
+{
+    switch ( key ){
+    case 's':
+        animation();
+        break;
+    }
+}
+
 
 int main(int argc, char** argv)
 {
@@ -1543,11 +1564,8 @@ int main(int argc, char** argv)
     glutCreateWindow ("Hridoy");
     init();
     glutDisplayFunc(display);
-    glutTimerFunc(10, busUp, 0);
-    glutTimerFunc(10,busUp2, 0);
-    glutTimerFunc(10,cloudAnimation, 0);
-    glutTimerFunc(10,sunAnimationX, 0);
-    glutTimerFunc(10,sunAnimationY, 0);
+    glutKeyboardFunc(keyfun);
+
 
     glutMainLoop();
     return 0;
