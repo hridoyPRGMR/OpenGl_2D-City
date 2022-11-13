@@ -7,6 +7,8 @@
 #include <math.h>
 # define PI 3.14159265358979323846
 
+/*press 's' to start animation*/
+
 void init()
 {
     glClearColor(0.4,0.2,0,0.5);
